@@ -4,23 +4,23 @@ def main():
     high = -Infinity
     totals = []
     with open("./input", "r") as f:
-        sum = 0
+        total = 0
         vals = []
         for v in f:
             try:
                 d = int(v)
-                sum += d
+                total += d
                 vals.append(d)
             except ValueError as e:
-                totals.append(sum)
-                if sum > high:
-                    high = sum
-                sum = 0
+                totals.append(total)
+                if total > high:
+                    high = total
+                total = 0
                 vals = []
                 
     sorted = sort(totals)
-    return sorted
+    print(sorted[-1])
+    print(sum(sorted[-3:]))
 
 if __name__ == "__main__":
-    final = main()
-    print(final)
+    main()

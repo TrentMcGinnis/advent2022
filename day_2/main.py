@@ -1,4 +1,19 @@
-if __name__ == "__main__":
+POINTS_MAPPING = {
+    "AX": 3,
+    "BX": 1,
+    "CX": 2,
+    "AY": 4,
+    "BY": 5,
+    "CY": 6,
+    "AZ": 8,
+    "BZ": 9,
+    "CZ": 7,
+}
+
+
+def main():
     with open("input") as f:
-        sorted = list(map(lambda x: int(x) if x != '\n' else 0, f.readlines()))
-        print(sum(sorted[-3:]))
+        print(sum(map(lambda d: POINTS_MAPPING[d], map(lambda a: a[0]+a[1], map(lambda l: l.split(), f.readlines())))))
+
+if __name__ == "__main__":
+    main()
